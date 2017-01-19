@@ -10,7 +10,7 @@ $(document).ready(function(){
         });
     });
     $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() >= $(document).height()-10) {
+        if($(window).scrollTop() + $(window).height() == $(document).height()-10) {
             obtener_datos();
         }
     });
@@ -30,5 +30,5 @@ function nueva_busqueda(){
     $("#contenedor").empty();
 }
 function inserta_pelis(pelis){
-    $("#contenedor").append($("<div id='tarjeta'><img src="+pelis.Poster+"><p>"+pelis.Title+"</p></div>"));
+    $("#contenedor").append($("<div id='tarjeta'><img src="+pelis.Poster+"><p>"+pelis.Title+"</p><p>"+pelis.Year+"</p></div>"));
 }

@@ -10,7 +10,7 @@ $(document).ready(function(){
         });
     });
     $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() == $(document).height()-10) {
+        if($(window).scrollTop() + $(window).height() >= $(document).height()-10) {
             obtener_datos();
         }
     });

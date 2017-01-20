@@ -1,6 +1,18 @@
 var cont = 0;
+var tipo = "";
 $(document).ready(function(){
+    $("#peli").click(function(){
+        tipo = "&type=movie";
+        nueva_busqueda();
+        obtener_datos(tipo);
+    });
+    $("#serie").click(function(){
+        tipo = "&type=series";
+        nueva_busqueda();
+        obtener_datos(tipo);
+    })
     $("#buscar").click(function(){
+        tipo = "";
         nueva_busqueda();
         let texto_buscar = $("input").val();
         $.getJSON("http://www.omdbapi.com/?s="+texto_buscar, function(pelis){
@@ -19,7 +31,7 @@ $(document).ready(function(){
 function obtener_datos(){
     cont++;
     let texto_buscar = $("input").val();
-    $.getJSON("http://www.omdbapi.com/?s="+texto_buscar+"&page="+cont, function(pelis){
+    $.getJSON("http://www.omdbapi.com/?s="+texto_buscar+"&page="+cont+tipo, function(pelis){
         for (peli of pelis.Search){
             inserta_pelis(peli);
         }
